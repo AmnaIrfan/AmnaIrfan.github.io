@@ -52,13 +52,13 @@
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contributors">Contributors</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Progress</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#similarity">Similarity</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Paper Review</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Proposal</a>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">About</a>
           </li>
         </ul>
       </div>
@@ -81,19 +81,19 @@
       <h2 class="text-center text-uppercase text-secondary mb-0">Contributors</h2>
       <hr class="star-dark mb-5">
       <div class="row">
-        <div class="col-md-6 col-lg-4 contributors" style="text-align: center;">
+        <div class="col-md-6 col-lg-4 contributors" style="text-align: justify;">
           <img class="rounded-circle" src="img/amna.jpg" alt="Amna Irfan" width="190" height="200">
           <h4>Amna Irfan</h4>
           <p>I am a first year Computer Science graduate student at UIC. Last year, I graduated with a bachelors degree in Computer Science and a minor in Linguistics. Since the past 3 years, I have been working as a full-stack developer at LeadFuze which is a marketing startup. In terms of my undergraduate research experience, I have worked on statistical topic models (mostly LDA) and dialogue systems. I am fluent in Java, Python, GoLang, C#. During the research analysis phase of my projects, I also had the chance to work in R-studio and SAS.
           Why am I taking this course? I am obsessed with animals specially cats and I wanted to learn a bit more on how computer science can be applied to the life sciences. Right now, I am set on doing my graduate research thesis on NLP, but I want to see if this course will change my mind.
           </p>
         </div>
-        <div class="col-md-6 col-lg-4 contributors" style="text-align: center;">
+        <div class="col-md-6 col-lg-4 contributors" style="text-align: justify;">
             <img class="rounded-circle" src="img/shivaniphoto.jpg" alt="Shivani Belman" width="190" height="200">
             <h4>Shivani Kamath Belman</h4>
             <p>Hello there :) I am a Master's student in the Bioengineering department at UIC with a specialization in Bioinformatics. I have a Bachelor's degree in Computer Science. </br> I always enjoyed biology so I chose to get into bioinformatics to apply my computer science skillset in a field I like. I have experience working with various research teams and medical data. </br>I chose this course because it allows me to delve into the computational aspects of biology.</p>
           </div>
-          <div class="col-md-6 col-lg-4 contributors" style="text-align: center;">
+          <div class="col-md-6 col-lg-4 contributors" style="text-align: justify;">
               <img class="rounded-circle" src="img/Pratik.jpg" alt="Pratik Kshirsagar" width="190" height="200">
               <h4>Pratik Kshirsagar</h4>
               <p>I'm a Master's student in Computer Science. I like to understand why things work the way they do. 🤔</p>
@@ -105,28 +105,107 @@
     </div>
   </section>
 
-  <!-- <section class="bg-primary text-white mb-0" id="about">
+  <section class="bg-primary text-white mb-0" id="similarity">
     <div class="container">
-      <h2 class="text-center text-uppercase text-white">About</h2>
+      <h2 class="text-center text-uppercase text-white">Similarity</h2>
       <hr class="star-light mb-5">
       <div class="row">
-        <div class="col-lg-4 ml-auto">
-          <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete
-            source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+        <div class="col-lg-12 ml-auto">
+          <h4 class="text-center">Problem Statement</h4>
+          <p class="lead">Find a biological database of your choice and download 2 closely related entries from it.
+          How did you determine that the entries are closely related? What is the “distance” between the entries?
+          How did you define and compute it?</p>
+          <h4 class="text-center">Dataset</h4>
+          <p class="lead">In our very first task related to the project, we have selected an exceedingly simple domain. The data we have selected
+          is the 'Iris Data Set'. This dataset has information on various physical traits of flowers from different species belonging to the Iris genus.</p>
+          <p class="lead">The dataset can be found <a id="link-to-dataset" href="https://archive.ics.uci.edu/ml/datasets/Iris">here.</a></p>
+          <h4 class="text-center">Dataset Description</h4>
+          <p class="lead">The dataset we have picked contains information about samples belonging to the Iris genus of flowers.
+          Based on their attributes or traits, we can predict what species they belong to, hence being an ideal dataset for learning
+          classification.</p>
+          <p class="lead">There are 150 instances of different flowers. For each instance, there exist 4 attributes and a class attribute which
+          tells us which species the instance actually belongs to.
+          Each attribute is a numerical value that quantifies the particular trait and the class label is a categorical value.</p>
+
+          <h5>The 4 attributes are:</h5>
+          <ul class="lead">
+            <li>Sepal width in cm
+            <li>Sepal length in cm
+            <li>Petal width in cm
+            <li>Petal length in cm
+          </ul>
+
+          <h5>The 3 class attributes are:</h5>
+          <ul class="lead">
+            <li>Iris Setosa
+            <li>Iris Virginica
+            <li>Iris Versicolour
+          </ul>
+
+          <p class="lead text-center">Below there is an example of how the dataset looked for the first few instances.</p>
+          <img class="img-fluid mb-5 d-block mx-auto" style="width: 800px;" src="./img/Sample - Original.png">
+
+          <h4 class="text-center">Preliminary Analysis and Preprocessing</h4>
+          <p class=" text-justify lead">Our initial analysis allowed us to conclude that there were no missing values. This makes our data as accuracte and
+          reliable as possible.
+          We also found out that there were no duplicate values. This is great news because this avoids any confusion due to
+          unusual similarity scores and helps avoid unnecessary computations.
+          Since every data instance was unique, finding similarity between 2 entries was extremely convenient and would give
+          reliable values.</p>
+
+          <p class=" text-justify lead">As it can be seen from the image of sample data above, all of the attributes are useful in calculating similarity.
+          (Hooray!)
+          Every instance, ie, flower, has a unique sepal width, sepal length, petal width and petal length. All of these
+          properties can be used to calculate similarity.
+          The class label too is instrumental in finding out whether 2 instances are similar or not, but in order to keep a
+          uniform measure of similarity, we decided to exclude it from our initial computations.</p>
+
+          <p class=" text-justify lead">We used a python script to import our dataset and prepare it (exclude the class label) for computing similarity, using pandas.</p>
+
+          <img class="img-fluid mb-5 d-block mx-auto" style="width: 800px;" src="./img/Sample - Distance.png">
+
+          <h4 class="text-center"></h4>
+          <p class=" text-justify lead">After preliminary analysis, it was easy to conclude that we needed to find some sort of distance measure. We tried out
+          Manhattan distance as well as Euclidean distance between the attribute values of
+          different instances.</p>
+          <p class=" text-justify lead">Our data instances have 4 attribute values each. Each of those values being numerical in nature. So, the best way to
+          find similarity between 2 entries was
+          to treat both of the instances as vectors [1-D arrays] and find the Manhattan as well as Euclidean distances between
+          the 2 instances.</p>
+
+          <p class="text-center lead">Manhattan distance = Sum(|Val ij - Val ik|)</p>
+          <p class="text-center lead">Euclidean distance = Sq.
+          root(Sum(|Val ij - Val ik|^2)).</p>
+          <p class="text-center lead">where Val ij = value of attribute i for data
+          instance j and
+          Val ik = value of attribute i for data instance k.</p>
+
+          <p class=" text-justify lead">Both of these turned out equally effective distance measures but it seemed more convenient to consider Euclidean as our
+          primary distance measure purely
+          due to convention. As we all know, the L2 Norm is the most popular distance measure.</p>
+
+          <p class=" text-center lead">We achieved these aforementioned computations through simple dataframe operations in Python.</p>
+          <img class="img-fluid mb-5 d-block mx-auto" style="width: 800px;" src="./img/Processed.png">
+          <img class="img-fluid mb-5 d-block mx-auto" style="width: 800px;" src="./img/code1.png">
+          <img class="img-fluid mb-5 d-block mx-auto" style="width: 800px;" src="./img/code2.png">
+
+          <p class=" text-justify lead">So as we can see from the above example, the Manhattan distance between the two entries [73] and [98] is 1.997 and 3.099 respectively.</p>
+
+          <p class=" text-justify lead">We used the 'distance' package from SciPy to calculate both the Euclidean and Manhattan distances. The cityblock and euclidean functions used in the example above, are from the said package.</p>
         </div>
-        <div class="col-lg-4 mr-auto">
+        <!-- <div class="col-lg-4 mr-auto">
           <p class="lead">Whether you're a student looking to showcase your work, a professional looking to attract clients,
             or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
-        </div>
+        </div> -->
       </div>
-      <div class="text-center mt-4">
+      <!-- <div class="text-center mt-4">
         <a class="btn btn-xl btn-outline-light" href="#">
           <i class="fas fa-download mr-2"></i>
           Download Now!
         </a>
-      </div>
+      </div> -->
     </div>
-  </section> -->
+  </section>
 
   <!--
     <section id="contact">
@@ -224,7 +303,7 @@
 
   <div class="copyright py-4 text-center text-white">
     <div class="container">
-      <small>Copyright &copy; amnairfan.github.io/cs501/</small>
+      <small>Copyright &copy; Amna Irfan, Pratik Kshirsagar & Shivani Kamath</small>
     </div>
   </div>
 
