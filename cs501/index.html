@@ -23,6 +23,116 @@
   <!-- Custom styles for this template -->
   <link href="css/freelancer.min.css" rel="stylesheet">
 
+
+  <script src="https://cdn.anychart.com/releases/8.3.0/js/anychart-base.min.js"></script>
+  <link ref="https://cdn.anychart.com/releases/8.3.0/fonts/css/anychart-font.min.css" />
+  <script>
+    anychart.onDocumentReady(function () {
+      // create data set on our data
+      var dataSet = anychart.data.set(getData());
+
+      // map data for the first series, take x from the zero column and value from the first column of data set
+      var seriesData_1 = dataSet.mapAs({ 'x': 0, 'value': 1 });
+
+      // map data for the second series, take x from the zero column and value from the second column of data set
+      var seriesData_2 = dataSet.mapAs({ 'x': 0, 'value': 2 });
+
+      // create line chart
+      var chart = anychart.line();
+
+      // turn on chart animation
+      chart.animation(true);
+
+      // set chart padding
+      chart.padding([10, 20, 5, 20]);
+
+      // turn on the crosshair
+      chart.crosshair()
+        .enabled(true)
+        .yLabel(false)
+        .yStroke(null);
+
+      // set tooltip mode to point
+      chart.tooltip().positionMode('point');
+
+      // set chart title text settings
+      chart.title('Manhattan and Euclidean Similarity Between Iris-Versicolor pairs');
+
+      // set yAxis title
+      chart.yAxis().title('Similarity');
+      chart.xAxis().labels().padding(5);
+
+      // create first series with mapped data
+      var series_1 = chart.line(seriesData_1);
+      series_1.name('Euclidean Distance');
+      series_1.hovered().markers()
+        .enabled(true)
+        .type('circle')
+        .size(4);
+      series_1.tooltip()
+        .position('right')
+        .anchor('left-center')
+        .offsetX(5)
+        .offsetY(5);
+      series_1.stroke('red');
+
+      // create second series with mapped data
+      var series_2 = chart.line(seriesData_2);
+      series_2.name('Manhattan Distance');
+      series_2.hovered().markers()
+        .enabled(true)
+        .type('circle')
+        .size(4);
+      series_2.tooltip()
+        .position('right')
+        .anchor('left-center')
+        .offsetX(5)
+        .offsetY(5);
+
+
+      // turn the legend on
+      chart.legend()
+        .enabled(true)
+        .fontSize(13)
+        .padding([0, 0, 10, 0]);
+
+      // set container id for the chart
+      chart.container('container');
+      // initiate chart drawing
+      chart.draw();
+    });
+
+    function getData() {
+      return [
+        ['a & b', 0.640312423743, 0.9],
+        ['b & c', 0.648074069841, 1.0],
+        ['c & d', 1.8574175621, 3.3],
+        ['d & e', 1.28452325787, 2.3],
+        ['e & f', 0.830662386292, 1.1],
+        ['f & g', 0.860232526704, 1.6],
+        ['g & h', 2.25610283454, 4.3],
+        ['h & i', 2.21810730128, 3.8],
+        ['i & j', 1.58113883008, 2.4],
+        ['j & k', 0.921954445729, 1.7],
+        ['k & l', 1.59687194227, 3.1],
+        ['l & m', 0.969535971483, 1.6],
+        ['m & n', 1.07238052948, 1.9],
+        ['n & o', 1.2124355653, 1.7],
+        ['o & p', 1.37840487521, 2.2],
+        ['p & q', 1.11355287257, 1.4],
+        ['q & r', 0.734846922835, 1.4],
+        ['r & s', 0.905538513814, 1.8],
+        ['s & t', 0.98488578018, 1.9],
+        ['t & u', 1.37113092008, 2.6],
+        ['u & v', 1.04403065089, 1.9],
+        ['v & w', 0.989949493661, 1.6],
+        ['w & x', 0.509901951359, 1.0],
+        ['x & y', 0.519615242271, 0.9],
+        ['y & z', 0.264575131106, 0.5],
+      ]
+    }
+  </script>
+
 </head>
 
 
@@ -40,6 +150,104 @@
     color: white;
     text-decoration: underline;
 }
+table a:link {
+	color: #666;
+	font-weight: bold;
+	text-decoration:none;
+}
+table a:visited {
+	color: #999999;
+	font-weight:bold;
+	text-decoration:none;
+}
+table a:active,
+table a:hover {
+	color: #bd5a35;
+	text-decoration:underline;
+}
+table {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#666;
+	font-size:12px;
+	text-shadow: 1px 1px 0px #fff;
+	background:#eaebec;
+	margin:20px;
+	border:#ccc 1px solid;
+
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+
+	-moz-box-shadow: 0 1px 2px #d1d1d1;
+	-webkit-box-shadow: 0 1px 2px #d1d1d1;
+	box-shadow: 0 1px 2px #d1d1d1;
+}
+table th {
+	padding:21px 25px 22px 25px;
+	border-top:1px solid #fafafa;
+	border-bottom:1px solid #e0e0e0;
+
+	background: #ededed;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
+	background: -moz-linear-gradient(top,  #ededed,  #ebebeb);
+}
+table th:first-child {
+	text-align: left;
+	padding-left:20px;
+}
+table tr:first-child th:first-child {
+	-moz-border-radius-topleft:3px;
+	-webkit-border-top-left-radius:3px;
+	border-top-left-radius:3px;
+}
+table tr:first-child th:last-child {
+	-moz-border-radius-topright:3px;
+	-webkit-border-top-right-radius:3px;
+	border-top-right-radius:3px;
+}
+table tr {
+	text-align: center;
+	padding-left:20px;
+}
+table td:first-child {
+	text-align: left;
+	padding-left:20px;
+	border-left: 0;
+}
+table td {
+	padding:18px;
+	border-top: 1px solid #ffffff;
+	border-bottom:1px solid #e0e0e0;
+	border-left: 1px solid #e0e0e0;
+
+	background: #fafafa;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+	background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);
+}
+table tr.even td {
+	background: #f6f6f6;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
+	background: -moz-linear-gradient(top,  #f8f8f8,  #f6f6f6);
+}
+table tr:last-child td {
+	border-bottom:0;
+}
+table tr:last-child td:first-child {
+	-moz-border-radius-bottomleft:3px;
+	-webkit-border-bottom-left-radius:3px;
+	border-bottom-left-radius:3px;
+}
+table tr:last-child td:last-child {
+	-moz-border-radius-bottomright:3px;
+	-webkit-border-bottom-right-radius:3px;
+	border-bottom-right-radius:3px;
+}
+table tr:hover td {
+	background: #f2f2f2;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
+	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);	
+}
+
 </style>
 
 <body id="page-top">
@@ -48,8 +256,9 @@
   <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">CS 502 - Comp Biology</a>
-      <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse"
-        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button"
+        data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>
@@ -91,23 +300,35 @@
         <div class="col-md-6 col-lg-4 contributors" style="text-align: justify;">
           <img class="rounded-circle" src="img/amna.jpg" alt="Amna Irfan" width="190" height="200">
           <h4>Amna Irfan</h4>
-          <p>I am a first year Computer Science graduate student at UIC. Last year, I graduated with a bachelors degree in Computer Science and a minor in Linguistics. Since the past 3 years, I have been working as a full-stack developer at LeadFuze which is a marketing startup. In terms of my undergraduate research experience, I have worked on statistical topic models (mostly LDA) and dialogue systems. I am fluent in Java, Python, GoLang, C#. During the research analysis phase of my projects, I also had the chance to work in R-studio and SAS.
-          Why am I taking this course? I am obsessed with animals specially cats and I wanted to learn a bit more on how computer science can be applied to the life sciences. Right now, I am set on doing my graduate research thesis on NLP, but I want to see if this course will change my mind.
+          <p>I am a first year Computer Science graduate student at UIC. Last year, I graduated with a bachelors degree
+            in Computer Science and a minor in Linguistics. Since the past 3 years, I have been working as a full-stack
+            developer at LeadFuze which is a marketing startup. In terms of my undergraduate research experience, I
+            have worked on statistical topic models (mostly LDA) and dialogue systems. I am fluent in Java, Python,
+            GoLang, C#. During the research analysis phase of my projects, I also had the chance to work in R-studio
+            and SAS.
+            Why am I taking this course? I am obsessed with animals specially cats and I wanted to learn a bit more on
+            how computer science can be applied to the life sciences. Right now, I am set on doing my graduate research
+            thesis on NLP, but I want to see if this course will change my mind.
           </p>
         </div>
         <div class="col-md-6 col-lg-4 contributors" style="text-align: justify;">
-            <img class="rounded-circle" src="img/shivaniphoto.jpg" alt="Shivani Belman" width="190" height="200">
-            <h4>Shivani Kamath Belman</h4>
-            <p>Hello there :) I am a Master's student in the Bioengineering department at UIC with a specialization in Bioinformatics. I have a Bachelor's degree in Computer Science. </br> I always enjoyed biology so I chose to get into bioinformatics to apply my computer science skillset in a field I like. I have experience working with various research teams and medical data. </br>I chose this course because it allows me to delve into the computational aspects of biology.</p>
-          </div>
-          <div class="col-md-6 col-lg-4 contributors" style="text-align: justify;">
-              <img class="rounded-circle" src="img/Pratik.jpg" alt="Pratik Kshirsagar" width="190" height="200">
-              <h4>Pratik Kshirsagar</h4>
-              <p>I'm a Master's student in Computer Science. I like to understand why things work the way they do. 🤔</p>
-              <p></p>I love science for it can show how intelligent 🤓 (or dumb 🤷) humans can be ;)</p>
-              <p>Curiosity killed the cat but satisfaction brought it back. 😋 => Let nothing hold you back from learning!</p>
-              <p>I took this course out of my geniune love for biology since an early age. I hope to acquire new knowledge and have some fun along the way!</p>
-            </div>
+          <img class="rounded-circle" src="img/shivaniphoto.jpg" alt="Shivani Belman" width="190" height="200">
+          <h4>Shivani Kamath Belman</h4>
+          <p>Hello there :) I am a Master's student in the Bioengineering department at UIC with a specialization in
+            Bioinformatics. I have a Bachelor's degree in Computer Science. </br> I always enjoyed biology so I chose
+            to get into bioinformatics to apply my computer science skillset in a field I like. I have experience
+            working with various research teams and medical data. </br>I chose this course because it allows me to
+            delve into the computational aspects of biology.</p>
+        </div>
+        <div class="col-md-6 col-lg-4 contributors" style="text-align: justify;">
+          <img class="rounded-circle" src="img/Pratik.jpg" alt="Pratik Kshirsagar" width="190" height="200">
+          <h4>Pratik Kshirsagar</h4>
+          <p>I'm a Master's student in Computer Science. I like to understand why things work the way they do. 🤔</p>
+          <p></p>I love science for it can show how intelligent 🤓 (or dumb 🤷) humans can be ;)</p>
+          <p>Curiosity killed the cat but satisfaction brought it back. 😋 => Let nothing hold you back from learning!</p>
+          <p>I took this course out of my geniune love for biology since an early age. I hope to acquire new knowledge
+            and have some fun along the way!</p>
+        </div>
       </div>
     </div>
   </section>
@@ -120,19 +341,26 @@
         <div class="col-lg-12 ml-auto">
           <h4 class="text-center">Problem Statement</h4>
           <p class="lead">Find a biological database of your choice and download 2 closely related entries from it.
-          How did you determine that the entries are closely related? What is the “distance” between the entries?
-          How did you define and compute it?</p>
+            How did you determine that the entries are closely related? What is the “distance” between the entries?
+            How did you define and compute it?</p>
           <h4 class="text-center">Dataset</h4>
-          <p class="lead">In our very first task related to the project, we have selected an exceedingly simple domain. The data we have selected
-          is the 'Iris Data Set'. This dataset has information on various physical traits of flowers from different species belonging to the Iris genus.</p>
-          <p class="lead">The dataset can be found <a id="link-to-dataset" href="https://archive.ics.uci.edu/ml/datasets/Iris" target="_blank">here.</a></p>
+          <p class="lead">In our very first task related to the project, we have selected an exceedingly simple domain.
+            The data we have selected
+            is the 'Iris Data Set'. This dataset has information on various physical traits of flowers from different
+            species belonging to the Iris genus.</p>
+          <p class="lead">The dataset can be found <a id="link-to-dataset" href="https://archive.ics.uci.edu/ml/datasets/Iris"
+              target="_blank">here.</a></p>
           <h4 class="text-center">Dataset Description</h4>
-          <p class="lead">The dataset we have picked contains information about samples belonging to the Iris genus of flowers.
-          Based on their attributes or traits, we can predict what species they belong to, hence being an ideal dataset for learning
-          classification.</p>
-          <p class="lead">There are 150 instances of different flowers. For each instance, there exist 4 attributes and a class attribute which
-          tells us which species the instance actually belongs to.
-          Each attribute is a numerical value that quantifies the particular trait and the class label is a categorical value.</p>
+          <p class="lead">The dataset we have picked contains information about samples belonging to the Iris genus of
+            flowers.
+            Based on their attributes or traits, we can predict what species they belong to, hence being an ideal
+            dataset for learning
+            classification.</p>
+          <p class="lead">There are 150 instances of different flowers. For each instance, there exist 4 attributes and
+            a class attribute which
+            tells us which species the instance actually belongs to.
+            Each attribute is a numerical value that quantifies the particular trait and the class label is a
+            categorical value.</p>
 
           <h5>The 4 attributes are:</h5>
           <ul class="lead">
@@ -153,58 +381,439 @@
           <img class="img-fluid mb-5 d-block mx-auto" style="width: 800px;" src="./img/Sample - Original.png">
 
           <h4 class="text-center">Preliminary Analysis and Preprocessing</h4>
-          <p class=" text-justify lead">Our initial analysis allowed us to conclude that there were no missing values. This makes our data as accuracte and
-          reliable as possible.
-          We also found out that there were no duplicate values. This is great news because this avoids any confusion due to
-          unusual similarity scores and helps avoid unnecessary computations.
-          Since every data instance was unique, finding similarity between 2 entries was extremely convenient and would give
-          reliable values.</p>
+          <p class=" text-justify lead">Our initial analysis allowed us to conclude that there were no missing values.
+            This makes our data as accuracte and
+            reliable as possible.
+            We also found out that there were no duplicate values. This is great news because this avoids any confusion
+            due to
+            unusual similarity scores and helps avoid unnecessary computations.
+            Since every data instance was unique, finding similarity between 2 entries was extremely convenient and
+            would give
+            reliable values.</p>
 
-          <p class=" text-justify lead">As it can be seen from the image of sample data above, all of the attributes are useful in calculating similarity.
-          (Hooray!)
-          Every instance, ie, flower, has a unique sepal width, sepal length, petal width and petal length. All of these
-          properties can be used to calculate similarity.
-          The class label too is instrumental in finding out whether 2 instances are similar or not, but in order to keep a
-          uniform measure of similarity, we decided to exclude it from our initial computations.</p>
+          <p class=" text-justify lead">As it can be seen from the image of sample data above, all of the attributes
+            are useful in calculating similarity.
+            (Hooray!)
+            Every instance, ie, flower, has a unique sepal width, sepal length, petal width and petal length. All of
+            these
+            properties can be used to calculate similarity.
+            The class label too is instrumental in finding out whether 2 instances are similar or not, but in order to
+            keep a
+            uniform measure of similarity, we decided to exclude it from our initial computations.</p>
 
-          <p class=" text-justify lead">We used a python script to import our dataset and prepare it (exclude the class label) for computing similarity, using pandas.</p>
+          <p class=" text-justify lead">We used a python script to import our dataset and prepare it (exclude the class
+            label) for computing similarity, using pandas.</p>
 
           <img class="img-fluid mb-5 d-block mx-auto" style="width: 800px;" src="./img/Sample - Distance.png">
 
           <h4 class="text-center"></h4>
-          <p class=" text-justify lead">After preliminary analysis, it was easy to conclude that we needed to find some sort of distance measure. We tried out
-          Manhattan distance as well as Euclidean distance between the attribute values of
-          different instances.</p>
-          <p class=" text-justify lead">Our data instances have 4 attribute values each. Each of those values being numerical in nature. So, the best way to
-          find similarity between 2 entries was
-          to treat both of the instances as vectors [1-D arrays] and find the Manhattan as well as Euclidean distances between
-          the 2 instances.</p>
+          <p class=" text-justify lead">After preliminary analysis, it was easy to conclude that we needed to find some
+            sort of distance measure. We tried out
+            Manhattan distance as well as Euclidean distance between the attribute values of
+            different instances.</p>
+          <p class=" text-justify lead">Our data instances have 4 attribute values each. Each of those values being
+            numerical in nature. So, the best way to
+            find similarity between 2 entries was
+            to treat both of the instances as vectors [1-D arrays] and find the Manhattan as well as Euclidean
+            distances between
+            the 2 instances.</p>
 
           <p class="text-center lead">Manhattan distance = Sum(|Val ij - Val ik|)</p>
           <p class="text-center lead">Euclidean distance = Sq.
-          root(Sum(|Val ij - Val ik|^2)).</p>
+            root(Sum(|Val ij - Val ik|^2)).</p>
           <p class="text-center lead">where Val ij = value of attribute i for data
-          instance j and
-          Val ik = value of attribute i for data instance k.</p>
+            instance j and
+            Val ik = value of attribute i for data instance k.</p>
 
-          <p class=" text-justify lead">Both of these turned out equally effective distance measures but it seemed more convenient to consider Euclidean as our
-          primary distance measure purely
-          due to convention. As we all know, the L2 Norm is the most popular distance measure.</p>
+          <p class=" text-justify lead">Both of these turned out equally effective distance measures but it seemed more
+            convenient to consider Euclidean as our
+            primary distance measure purely
+            due to convention. As we all know, the L2 Norm is the most popular distance measure.</p>
 
-          <p class=" text-center lead">We achieved these aforementioned computations through simple dataframe operations in Python.</p>
+          <p class=" text-center lead">We achieved these aforementioned computations through simple dataframe
+            operations in Python.</p>
           <img class="img-fluid mb-5 d-block mx-auto" style="width: 800px;" src="./img/Processed.png">
           <img class="img-fluid mb-5 d-block mx-auto" style="width: 800px;" src="./img/code1.png">
           <img class="img-fluid mb-5 d-block mx-auto" style="width: 800px;" src="./img/code2.png">
 
-          <p class=" text-justify lead">So as we can see from the above example, the Manhattan distance between the two entries [73] and [98] is 1.997 and 3.099 respectively.</p>
+          <p class=" text-justify lead">So as we can see from the above example, the Manhattan distance between the two
+            entries [73] and [98] is 1.997 and 3.099 respectively.</p>
 
-          <p class=" text-justify lead">We used the 'distance' package from SciPy to calculate both the Euclidean and Manhattan distances. The cityblock and euclidean functions used in the example above, are from the said package.</p>
+          <p class=" text-justify lead">We used the 'distance' package from SciPy to calculate both the Euclidean and
+            Manhattan distances. The cityblock and euclidean functions used in the example above, are from the said
+            package.</p>
+          <br />
+          <h4 class="text-center">Correlation Between Euclidean and Manhattan Distance</h4>
+
+          <p class=" text-justify lead">The following table represents the first 26 records from the flower class Iris-Versicolor.</p>
+
+        <table class="mx-auto" cellspacing='0'>
+          <!-- cellspacing='0' is important, must stay -->
+
+          <!-- Table Header -->
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Sepal Length</th>
+              <th>Sepal Width</th>
+              <th>Petal Length</th>
+              <th>Petal Width</th>
+              <th>Class</th>
+            </tr>
+          </thead>
+          <!-- Table Header -->
+
+          <!-- Table Body -->
+          <tbody>
+            <tr class='even'>
+              <td>a</td>
+              <td>7.0</td>
+              <td>3.2</td>
+              <td>4.7</td>
+              <td>1.4</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class=''>
+              <td>b</td>
+              <td>6.4</td>
+              <td>3.2</td>
+              <td>4.5</td>
+              <td>1.5</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class='even'>
+              <td>c</td>
+              <td>6.9</td>
+              <td>3.1</td>
+              <td>4.9</td>
+              <td>1.5</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class=''>
+              <td>d</td>
+              <td>5.5</td>
+              <td>2.3</td>
+              <td>4.0</td>
+              <td>1.3</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class='even'>
+              <td>e</td>
+              <td>6.5</td>
+              <td>2.8</td>
+              <td>4.6</td>
+              <td>1.5</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class=''>
+              <td>f</td>
+              <td>5.7</td>
+              <td>2.8</td>
+              <td>4.5</td>
+              <td>1.3</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class='even'>
+              <td>g</td>
+              <td>6.3</td>
+              <td>3.3</td>
+              <td>4.7</td>
+              <td>1.6</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class=''>
+              <td>h</td>
+              <td>4.9</td>
+              <td>2.4</td>
+              <td>3.3</td>
+              <td>1.0</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class='even'>
+              <td>i</td>
+              <td>6.6</td>
+              <td>2.9</td>
+              <td>4.6</td>
+              <td>1.3</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class=''>
+              <td>j</td>
+              <td>5.2</td>
+              <td>2.7</td>
+              <td>3.9</td>
+              <td>1.4</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class='even'>
+              <td>k</td>
+              <td>5.0</td>
+              <td>2.0</td>
+              <td>3.5</td>
+              <td>1.0</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class=''>
+              <td>l</td>
+              <td>5.9</td>
+              <td>3.0</td>
+              <td>4.2</td>
+              <td>1.5</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class='even'>
+              <td>m</td>
+              <td>6.0</td>
+              <td>2.2</td>
+              <td>4.0</td>
+              <td>1.0</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class=''>
+              <td>n</td>
+              <td>6.1</td>
+              <td>2.9</td>
+              <td>4.7</td>
+              <td>1.4</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class='even'>
+              <td>o</td>
+              <td>5.6</td>
+              <td>2.9</td>
+              <td>3.6</td>
+              <td>1.3</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class=''>
+              <td>p</td>
+              <td>6.7</td>
+              <td>3.1</td>
+              <td>4.4</td>
+              <td>1.4</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class='even'>
+              <td>q</td>
+              <td>5.6</td>
+              <td>3.0</td>
+              <td>4.5</td>
+              <td>1.5</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class=''>
+              <td>r</td>
+              <td>5.8</td>
+              <td>2.7</td>
+              <td>4.1</td>
+              <td>1.0</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class='even'>
+              <td>s</td>
+              <td>6.2</td>
+              <td>2.2</td>
+              <td>4.5</td>
+              <td>1.5</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class=''>
+              <td>t</td>
+              <td>5.6</td>
+              <td>2.5</td>
+              <td>3.9</td>
+              <td>1.1</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class='even'>
+              <td>u</td>
+              <td>5.9</td>
+              <td>3.2</td>
+              <td>4.8</td>
+              <td>1.8</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class=''>
+              <td>v</td>
+              <td>6.1</td>
+              <td>2.8</td>
+              <td>4.0</td>
+              <td>1.3</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class='even'>
+              <td>w</td>
+              <td>6.3</td>
+              <td>2.5</td>
+              <td>4.9</td>
+              <td>1.5</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class=''>
+              <td>x</td>
+              <td>6.1</td>
+              <td>2.8</td>
+              <td>4.7</td>
+              <td>1.2</td>
+              <td>Iris-versicolor</td>
+            </tr>
+            <tr class='even'>
+              <td>y</td>
+              <td>6.4</td>
+              <td>2.9</td>
+              <td>4.3</td>
+              <td>1.3</td>
+              <td>Iris-versicolor</td>
+            </tr>
+
+            <tr class=''>
+              <td>z</td>
+              <td>6.6</td>
+              <td>3.0</td>
+              <td>4.4</td>
+              <td>1.4</td>
+              <td>Iris-versicolor</td>
+            </tr>
+
+          </tbody>
+          <!-- Table Body -->
+
+        </table>
+
+        <p class=" text-justify lead">Plotting Manhattan and Euclidean similarity distance between nth - 1 and nth record where n = 26.</p>
+
+        <div id="container" style="height:400px"></div>
         </div>
+        <br/>
+        <p class="text-justify lead" style="margin-top:50px;">Looking at the line graph above, there seems to be a correlation between the Manhattan and Euclidean similarity measures. We will now use a scatter plot to plot Manhattan distance as a function of Euclidean distance and find if they correlate. If they do, we will also try to find a regression line that best describes their relation. Note that N = 51</p>
+
+        <div id="scatter_plot" class="mx-auto" style="width:100%;height:500px;margin-top:50px;"></div>
+        <script src="https://cdn.anychart.com/samples/scatter-charts/combination-of-line-and-marker-charts/data.js"></script>
+        <script src="https://cdn.anychart.com/releases/8.3.0/js/anychart-base.min.js"></script>
+        <script src="https://cdn.anychart.com/releases/8.3.0/js/anychart-ui.min.js"></script>
+        <script src="https://cdn.anychart.com/releases/8.3.0/js/anychart-exports.min.js"></script>
+        <script type="text/javascript">anychart.onDocumentReady(function () {
+            var chart = anychart.scatter();
+
+            // turn on chart animation
+            chart.animation(true);
+
+            // set chart title
+            chart.title('Correlation Between Manhattan and Euclidean Similarity Distance');
+
+            chart.xScale()
+              .minimum(0)
+              .maximum(3)
+              .ticks({ interval: 0.05 });
+            chart.yScale()
+              .minimum(0)
+              .maximum(5)
+              .ticks({ interval: 0.05 });
+
+            chart.yAxis().title('Manhattan Similarity');
+            chart.xAxis()
+              .title('Euclidean Similarity')
+              .drawFirstLabel(false)
+              .drawLastLabel(false);
+
+            chart.interactivity()
+              .hoverMode('by-spot')
+              .spotRadius(30);
+
+            chart.tooltip().displayMode('union');
+
+            // The data used in this sample can be obtained from the CDN
+            // https://cdn.anychart.com/samples/scatter-charts/combination-of-line-and-marker-charts/data.js
+            var marker = chart.marker([
+              [0.640312423743, 0.9],
+              [0.648074069841, 1.0],
+              [1.8574175621, 3.3],
+              [1.28452325787, 2.3],
+              [0.830662386292, 1.1],
+              [0.860232526704, 1.6],
+              [2.25610283454, 4.3],
+              [2.21810730128, 3.8],
+              [1.58113883008, 2.4],
+              [0.921954445729, 1.7],
+              [1.59687194227, 3.1],
+              [0.969535971483, 1.6],
+              [1.07238052948, 1.9],
+              [1.2124355653, 1.7],
+              [1.37840487521, 2.2],
+              [1.11355287257, 1.4],
+              [0.734846922835, 1.4],
+              [0.905538513814, 1.8],
+              [0.98488578018, 1.9],
+              [1.37113092008, 2.6],
+              [1.04403065089, 1.9],
+              [0.989949493661, 1.6],
+              [0.509901951359, 1.0],
+              [0.519615242271, 0.9],
+              [0.264575131106, 0.5],
+              [0.489897948557, 0.8],
+              [0.424264068712, 0.8],
+              [0.888819441732, 1.5],
+              [1.19582607431, 2.1],
+              [0.424264068712, 0.8],
+              [0.141421356237, 0.2],
+              [0.509901951359, 1.0],
+              [1.28062484749, 1.8],
+              [0.905538513814, 1.6],
+              [0.728010988928, 1.1],
+              [0.793725393319, 1.3],
+              [0.964365076099, 1.7],
+              [1.03440804328, 1.7],
+              [0.519615242271, 0.7],
+              [0.424264068712, 0.6],
+              [0.774596669241, 1.4],
+              [0.80622577483, 1.5],
+              [1.12249721603, 2.0],
+              [1.19163752878, 2.2],
+              [0.331662479036, 0.5],
+              [0.141421356237, 0.2],
+              [0.509901951359, 0.6],
+              [1.76068168617, 3.0],
+              [1.30384048104, 2.2],
+            ]);
+            marker.type('triangle-up')
+              .size(4);
+            marker.hovered()
+              .size(7)
+              .fill('gold')
+              .stroke(anychart.color.darken('gold'));
+            marker.tooltip()
+              .hAlign('start')
+              .format(function () {
+                return 'Manhattan: ' + this.value + '\nEuclidean: ' + this.x;
+              });
+
+            // The data used in this sample can be obtained from the CDN
+            // https://cdn.anychart.com/samples/scatter-charts/combination-of-line-and-marker-charts/data.js
+            chart.line([
+              [0, -0.074],
+              [1, 1.71],
+              [3, 5.278]
+            ]);
+            //y = −0.074 + 1.784⋅x
+            // set container id for the chart
+            chart.container('scatter_plot');
+            // initiate chart drawing
+            chart.draw();
+          });</script>
+
         <!-- <div class="col-lg-4 mr-auto">
           <p class="lead">Whether you're a student looking to showcase your work, a professional looking to attract clients,
             or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
         </div> -->
       </div>
+      <br/>
+      <p class=" text-justify lead">
+          <b>Result</b>
+          <p>R Calculation</p>
+          <p>r = 19.87 / √((11.138)(37.087)) = 0.9776</p>          
+        <p><u>The value of R is 0.9776. Therefore, in the domain of Iris, there is a strong positive correlation between the Manhattan and Euclidean similarity distance.</u></p>
+        <b>Regression Line: y = −0.074 + 1.784⋅x</b>
+      </p>
       <!-- <div class="text-center mt-4">
         <a class="btn btn-xl btn-outline-light" href="#">
           <i class="fas fa-download mr-2"></i>
@@ -335,8 +944,10 @@
             <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
             <hr class="star-dark mb-5">
             <img class="img-fluid mb-5" src="img/portfolio/cabin.png" alt="">
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil,
-              molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos
+            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam
+              nihil,
+              molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta,
+              eos
               quod consequuntur itaque. Nam.</p>
             <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
               <i class="fa fa-close"></i>
@@ -359,8 +970,10 @@
             <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
             <hr class="star-dark mb-5">
             <img class="img-fluid mb-5" src="img/portfolio/cake.png" alt="">
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil,
-              molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos
+            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam
+              nihil,
+              molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta,
+              eos
               quod consequuntur itaque. Nam.</p>
             <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
               <i class="fa fa-close"></i>
@@ -383,8 +996,10 @@
             <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
             <hr class="star-dark mb-5">
             <img class="img-fluid mb-5" src="img/portfolio/circus.png" alt="">
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil,
-              molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos
+            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam
+              nihil,
+              molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta,
+              eos
               quod consequuntur itaque. Nam.</p>
             <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
               <i class="fa fa-close"></i>
@@ -407,8 +1022,10 @@
             <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
             <hr class="star-dark mb-5">
             <img class="img-fluid mb-5" src="img/portfolio/game.png" alt="">
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil,
-              molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos
+            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam
+              nihil,
+              molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta,
+              eos
               quod consequuntur itaque. Nam.</p>
             <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
               <i class="fa fa-close"></i>
@@ -431,8 +1048,10 @@
             <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
             <hr class="star-dark mb-5">
             <img class="img-fluid mb-5" src="img/portfolio/safe.png" alt="">
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil,
-              molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos
+            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam
+              nihil,
+              molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta,
+              eos
               quod consequuntur itaque. Nam.</p>
             <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
               <i class="fa fa-close"></i>
@@ -455,8 +1074,10 @@
             <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
             <hr class="star-dark mb-5">
             <img class="img-fluid mb-5" src="img/portfolio/submarine.png" alt="">
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil,
-              molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos
+            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam
+              nihil,
+              molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta,
+              eos
               quod consequuntur itaque. Nam.</p>
             <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
               <i class="fa fa-close"></i>
