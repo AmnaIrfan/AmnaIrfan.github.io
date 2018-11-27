@@ -933,16 +933,19 @@ table tr:hover td {
         <div class="col-lg-12 ml-auto">
           <h4 class="text-center">Introduction</h4>
           <br />
-          <p class="text-justify lead"><u>Clustered regularly interspaced short palindromic repeats known as CRISPR</u> was
+          <p class="text-justify lead"><u>Clustered regularly interspaced short palindromic repeats known as CRISPR</u>
+            was
             first found in bacterial/prokaryotic cells. It is a built-in natural immune system that the bacterial cell
             uses to fight against viral invasions within its body.
           </p>
-          <p class="text-justify lead">In 1980s, scientists started noticing a strange pattern in some bacterial genomes. They found short
+          <p class="text-justify lead">In 1980s, scientists started noticing a strange pattern in some bacterial
+            genomes. They found short
             palindromic repeating sequences within the genome that were 28-37 base pairs long each and were separated
             by other short sequences (32-38 base pairs) which were later named “Spacer Sequences/DNA”. These spaces
             turned out to be copies of the DNA from viruses that previously attacked the bacteria or its ancestors.
             These repeats along with the spaces together are known as the “CRISPR locus”.</p>
-          <p class="text-justify lead">During a phage attack, the virus modifies the bacterial genome by injecting its own DNA into the bacterial
+          <p class="text-justify lead">During a phage attack, the virus modifies the bacterial genome by injecting its
+            own DNA into the bacterial
             cell. In defense, the bacteria responds by activating the CRISPR CAS9 system which is a natural defense
             mechanism within its cell. There are 3 steps to this immune system.</p>
           <ul class="text-justify lead">
@@ -955,44 +958,60 @@ table tr:hover td {
               the next step.
             </li><br>
             <li><u>Interference:</u> The crRna is then integrated with the CAS9 protein. CAS9 finds the complementary
-              DNA strand to the crRna (aka a single guided RNA or sgRna) and cuts/modifies that DNA sequence in the bacterial
+              DNA strand to the crRna (aka a single guided RNA or sgRna) and cuts/modifies that DNA sequence in the
+              bacterial
               cell through homologous recombination or non-homologous end joining. This results in the bacterial cells
               removing the foreign viral genes from their genome.</li><br>
           </ul>
           <p class="text-justify lead">
-            Since proteins are mostly universal, this discovery has opened up the possibility of editing/mutating the genome of any organism through injecting the CAS9 protein along with a guided RNA (CRISPR) into the target cells.
+            Since proteins are mostly universal, this discovery has opened up the possibility of editing/mutating the
+            genome of any organism through injecting the CAS9 protein along with a guided RNA (CRISPR) into the target
+            cells.
           </p>
           <h4 class="text-center">Problem</h4>
           <br />
-		  <p class="text-justify lead">Though CRISPR has been one of the greatest breakthroughs in technology, it comes with many down sides. It is one of the easiest gene engineering techniques discovered, but scientists have also discovered that it causes many mutations that are not supposed to occur. Changes in unintended target areas are often referred to as off-target effects.[4]
-            One of the main reasons for off-target mutations is that CRISPR-Cas9 cleaves DNA sequences that are similar to the target sequences.[3] In order to reduce these problems we could try to maximize cleavage efficiency and minimize off-target effects.
+          <p class="text-justify lead">Though CRISPR has been one of the greatest breakthroughs in technology, it comes
+            with many down sides. It is one of the easiest gene engineering techniques discovered, but scientists have
+            also discovered that it causes many mutations that are not supposed to occur. Changes in unintended target
+            areas are often referred to as off-target effects.[4]
+            One of the main reasons for off-target mutations is that CRISPR-Cas9 cleaves DNA sequences that are similar
+            to the target sequences.[3] In order to reduce these problems we could try to maximize cleavage efficiency
+            and minimize off-target effects.
             Our survey is going to consider various research papers that have been published to address the same. </p>
 
           <h4 class="text-center">Strategy</h4>
           <br />
 
-          <p class="text-justify lead">Our aim is to learn in detail about CRISPR , how it works and survey the many machine learning methods
+          <p class="text-justify lead">Our aim is to learn in detail about CRISPR , how it works and survey the many
+            machine learning methods
             that have been applied on making CRISPR cleavage efficient and predicting off-target effects of CRISPR.
             We plan to implement our survey gradually. First, we will focus on learning in depth about CRISPR-CAS9’s
             working mechanism, and how it is used in genetic engineering.
             Then we will focus on the machine learning methods that have been implemented to make CRISPR more
-            efficient and accurate. We do not plan to implement the techniques due to lack of data and the lack of technology which is required to test the accuracy of methods even if they are implemented. We will put up our results on our website and also present our findings in class.</p>
+            efficient and accurate. We do not plan to implement the techniques due to lack of data and the lack of
+            technology which is required to test the accuracy of methods even if they are implemented. We will put up
+            our results on our website and also present our findings in class.</p>
 
           <h4 class="text-center">References</h4>
           <br />
           <ol style="padding: 0;">
-            <li class="text-justify lead"> Abadi S, Yan WX, Amar D & Mayrose I (2017) A machine learning approach for predicting CRISPR-Cas9 cleavage efficiencies and patterns underlying its mechanism of action. PLoS Comput Biol 13(10): e1005807.</li>
+            <li class="text-justify lead"> Abadi S, Yan WX, Amar D & Mayrose I (2017) A machine learning approach for
+              predicting CRISPR-Cas9 cleavage efficiencies and patterns underlying its mechanism of action. PLoS Comput
+              Biol 13(10): e1005807.</li>
             <li class="text-justify lead">Listgarten J,Weinstein M, Kleinstiver B P, Sousa A A,Joung J. K,
               Crawford J, Gao K, Hoang L, Elibol M, Doench J G & Fusi N. (2018) Prediction of
-              off-target activities for the end-to-end design of CRISPR guide RNAs, Nature biomedical Engineering 2:38-47.
+              off-target activities for the end-to-end design of CRISPR guide RNAs, Nature biomedical Engineering
+              2:38-47.
             </li>
             <li class="text-justify lead">Doench J G, Fusi N, Sullender M, Hegde M, Vaimberg E W, Donovan K F,
               Smith I , Tothova Z, Wilen C, Orchard R, Virgin H W, Listgarten J & Root D E.(2016),
-              Optimized sgRNA design to maximize activity and minimize off-target effects of CRISPR-Cas9, Nat Biotechnol,34(2):184-191.
+              Optimized sgRNA design to maximize activity and minimize off-target effects of CRISPR-Cas9, Nat
+              Biotechnol,34(2):184-191.
             </li>
-			<li class="text-justify lead"> Otieno MO (2015) CRISPR-Cas9 Human Genome Editing: Challenges, Ethical Concerns and Implications. J Clin Res Bioeth 6:253. doi: 10.4172/2155-9627.1000253
+            <li class="text-justify lead"> Otieno MO (2015) CRISPR-Cas9 Human Genome Editing: Challenges, Ethical
+              Concerns and Implications. J Clin Res Bioeth 6:253. doi: 10.4172/2155-9627.1000253
 
-			</li>
+            </li>
 
           </ol>
           <br />
@@ -1008,109 +1027,250 @@ table tr:hover td {
       <hr class="star-dark mb-5">
       <div class="row">
         <div class="col-lg-12 ml-auto">
-          <h4 class="text-center">Paper Summary: RNA guided editing of bacterial genomes using CRISPR-Cas Systems</h4>
-          <br />
-          <p class="text-justify lead">
-            This paper talks about how CRISPR systems with dual-RNA:Cas9 can be used for editing bacterial genomes. The authors argument mainly revolves about the fact that we can use this CRISPR system for genome editing instead of cleaving the genome at specific points.
-          </p>
-          <p class="text-justify lead">
-            The authors reprogram the specificity by changing the sequence of short CRISPR RNA(crRNA) to make single and multi nucleotide changes carried on editing templates. The authors have worked with S. pneumoniae and E. coli as part of their analyses. It is shown that mutations can be introduced through the transformation of a template DNA fragment that will recombine in the genome and eliminate recognition of the target by the endonuclease (Cas9). Also it is observed that including several different crRNAs will let us introduce multiple mutations simultaneously.
-          </p>
-          <p class="text-justify lead">
-            To introduce specific changes in the genome, one must use an editing template carrying mutations that avert cleavage by the endonuclease. This is easy to achieve when performing gene insertion. But, when gene fusion is desired or generation of single nucleotide mutations, this is possible only by introducing mutations in the editing template that alter either the PAM or protospacer sequences.
-          </p>
-          <p class="text-justify lead">
-            While mutating the PAMs, there is only one criteria to be followed, we avoid mutating NGG to NAG or NNGGNN. All other random mutations in the PAMs are functional. Seed sequence (8-12bp adjacent to the PAMs) can prevent cleavage but there are restrictions with respect to nucleotide changing at each position and these restrictions vary with different spacers. Hence, mutations in the PAMs, if possible, should be the preferred strategy.
-          </p>
-          <p class="text-justify lead">
-            The specificity and versatility of editing using the CRISPR-Cas system rely on several unique properties of the Cas9 endonuclease: (i) its target specificity can be programmed with a small RNA, without the need for enzyme engineering, (ii) target specificity is very high, determined by a 20-bp RNA-DNA interaction with low probability of nontarget recognition, (iii) almost any sequence can be targeted, the only requirement being the presence of an adjacent NGG sequence, (iv) almost any mutation in the NGG sequence, as well as mutations in the seed sequence of the protospacer, eliminates targeting.
+          <h3><u>Summary 1:</u> RNA guided editing of bacterial genomes using CRISPR-Cas Systems</h4>
+            <br />
+            <p>
+              This paper talks about how CRISPR systems with dual-RNA:Cas9 can be used for editing bacterial genomes.
+              The
+              authors argument mainly revolves about the fact that we can use this CRISPR system for genome editing
+              instead of cleaving the genome at specific points.
+            </p>
+            <p>
+              The authors reprogram the specificity by changing the sequence of short CRISPR RNA(crRNA) to make single
+              and multi nucleotide changes carried on editing templates. The authors have worked with S. pneumoniae and
+              E. coli as part of their analyses. It is shown that mutations can be introduced through the
+              transformation
+              of a template DNA fragment that will recombine in the genome and eliminate recognition of the target by
+              the
+              endonuclease (Cas9). Also it is observed that including several different crRNAs will let us introduce
+              multiple mutations simultaneously.
+            </p>
+            <p>
+              To introduce specific changes in the genome, one must use an editing template carrying mutations that
+              avert
+              cleavage by the endonuclease. This is easy to achieve when performing gene insertion. But, when gene
+              fusion
+              is desired or generation of single nucleotide mutations, this is possible only by introducing mutations
+              in
+              the editing template that alter either the PAM or protospacer sequences.
+            </p>
+            <p>
+              While mutating the PAMs, there is only one criteria to be followed, we avoid mutating NGG to NAG or
+              NNGGNN.
+              All other random mutations in the PAMs are functional. Seed sequence (8-12bp adjacent to the PAMs) can
+              prevent cleavage but there are restrictions with respect to nucleotide changing at each position and
+              these
+              restrictions vary with different spacers. Hence, mutations in the PAMs, if possible, should be the
+              preferred strategy.
+            </p>
+            <p>
+              The specificity and versatility of editing using the CRISPR-Cas system rely on several unique properties
+              of
+              the Cas9 endonuclease: (i) its target specificity can be programmed with a small RNA, without the need
+              for
+              enzyme engineering, (ii) target specificity is very high, determined by a 20-bp RNA-DNA interaction with
+              low probability of nontarget recognition, (iii) almost any sequence can be targeted, the only requirement
+              being the presence of an adjacent NGG sequence, (iv) almost any mutation in the NGG sequence, as well as
+              mutations in the seed sequence of the protospacer, eliminates targeting.
 
-          </p>
+            </p>
         </div>
-		 <div class="col-lg-12 ml-auto">
-          <h4 class="text-center">Summary to &quot;CCtop: An Intuitive, Flexible and Reliable CRISPR/Cas9 Target Prediction Tool&quot;</h4>
-          <br />
-          <p class="text-justify lead">
-            The Crispr/Cas9 system technology is used in gene editing making it possible for knock-out, knock-in of genes, gene inactivation, <sup>&#8902;</sup> non-homologous end-joining as well as <sup>&#8902;</sup>homology directed repair. Though Crispr/Cas9 provides us with so many ways for gene editing, there are also a few drawbacks, one of them being the fact that there could be <sup>&#8902;</sup>off-target slicing of the gene. The authors interest is to develop an interactive tool, that is easy to use and can be used to evaluate and identify all candidate sgRNA target sites along with their off-target quality. 
-		  </p>
-		  <p class="text-justify lead">
-            To achieve this, the authors set up a web tool called Crispr/Cas9 target online prediction (CCtop) built with HTML and CGI scripts, using python for all the processing.
-		  </p>
-		  <p class="text-justify lead">
-			They used the bowtie short read aligner to search for off target sites. It takes in index and few parameters along with it outputting the sequences that  align with the input sequence. Then these alignments are scored to indicate the likelihood of the stability in the <sup>&#8902; </sup>sgRNA/DNA <sup>&#8902; </sup>heteroduplex. They also found that the likelihood decreases if the mismatch is closer to the PAM sequence. 
-		  </p>
-		  <p class="text-justify lead">
-			The formula used to score the off-target sequences is Score<sub>off-target</sub> = &#8721;<sub>mismatch</sub> 1.2<sup>pos</sup>.
-	      </p>
-		  <p class="text-justify lead">
-			Where pos is the position of each mismatch read from 5&#8217; end. 
-		  </p>
-		  <p class="text-justify lead">
-			After computing scores, each off target site is aligned with genes that its closest to. For this process, exon coordinate files of each organism are contained in the bx library in python which is used in this project. Basically, the off-target sites are checked to see if they contain any genes. Only exons closer than 100kb to target sites are assigned as the gene, else it is set to N/A. if they overlap, then the distance is set to 0. After assignment of genes, an sgRNA target site is scored. The sgRNA target sites are ranked based on how many numbers of predicted off-target sites are present and how they affect the off-target genes. The ranking is done using a single score which is calculated using the formula
-		  </p>
-		  <p class="text-justify lead">
-			Score = &#8721;<sub>off-target</sub> = [log10(dist)+scoreoff-target]/ [total_off_targets] &#8722; total_off_targets.
-		  </p>
-		  <p class="text-justify lead">
-			Where dist is the distance of each off-target site to corresponding closet exon. 
-			Off target sites with no associated exons are not considered for this score. 
-		  </p>
-		 <p class ="text-justify lead">
-			Conclusion: The web tool developed was tested for gene inactivation and non-homology and homologous gene repair. The web tool is also constantly improved based on available resources. CCtop was designed to evaluate and present the users with possible sgRNA target sites, and the tool does what it was promised to do. It is also user friendly for first time amateur users at the same time it provides enough flexibility for experts to use it as well. 
-		  </p>	
-		  <p class="text-justify lead">
-			Overall, the tool has been well received in the scientific community. 
-          </p>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-lg-12 ml-auto">
+          <h3><u>Summary 2:</u> CCtop, An Intuitive, Flexible and Reliable CRISPR/Cas9 Target
+            Prediction Tool</h4>
+            <br />
+            <p>
+              The Crispr/Cas9 system technology is used in gene editing making it possible for knock-out, knock-in of
+              genes, gene inactivation, <sup>&#8902;</sup> non-homologous end-joining as well as <sup>&#8902;</sup>homology
+              directed repair. Though Crispr/Cas9 provides us with so many ways for gene editing, there are also a few
+              drawbacks, one of them being the fact that there could be <sup>&#8902;</sup>off-target slicing of the
+              gene.
+              The authors interest is to develop an interactive tool, that is easy to use and can be used to evaluate
+              and
+              identify all candidate sgRNA target sites along with their off-target quality.
+            </p>
+            <p>
+              To achieve this, the authors set up a web tool called Crispr/Cas9 target online prediction (CCtop) built
+              with HTML and CGI scripts, using python for all the processing.
+            </p>
+            <p>
+              They used the bowtie short read aligner to search for off target sites. It takes in index and few
+              parameters along with it outputting the sequences that align with the input sequence. Then these
+              alignments
+              are scored to indicate the likelihood of the stability in the <sup>&#8902; </sup>sgRNA/DNA <sup>&#8902;
+              </sup>heteroduplex. They also found that the likelihood decreases if the mismatch is closer to the PAM
+              sequence.
+            </p>
+            <p>
+              The formula used to score the off-target sequences is Score<sub>off-target</sub> = &#8721;<sub>mismatch</sub>
+              1.2<sup>pos</sup>.
+            </p>
+            <p>
+              Where pos is the position of each mismatch read from 5&#8217; end.
+            </p>
+            <p>
+              After computing scores, each off target site is aligned with genes that its closest to. For this process,
+              exon coordinate files of each organism are contained in the bx library in python which is used in this
+              project. Basically, the off-target sites are checked to see if they contain any genes. Only exons closer
+              than 100kb to target sites are assigned as the gene, else it is set to N/A. if they overlap, then the
+              distance is set to 0. After assignment of genes, an sgRNA target site is scored. The sgRNA target sites
+              are
+              ranked based on how many numbers of predicted off-target sites are present and how they affect the
+              off-target genes. The ranking is done using a single score which is calculated using the formula
+            </p>
+            <p>
+              Score = &#8721;<sub>off-target</sub> = [log10(dist)+scoreoff-target]/ [total_off_targets] &#8722;
+              total_off_targets.
+            </p>
+            <p>
+              Where dist is the distance of each off-target site to corresponding closet exon.
+              Off target sites with no associated exons are not considered for this score.
+            </p>
+            <p>
+              Conclusion: The web tool developed was tested for gene inactivation and non-homology and homologous gene
+              repair. The web tool is also constantly improved based on available resources. CCtop was designed to
+              evaluate and present the users with possible sgRNA target sites, and the tool does what it was promised
+              to
+              do. It is also user friendly for first time amateur users at the same time it provides enough flexibility
+              for experts to use it as well.
+            </p>
+            <p>
+              Overall, the tool has been well received in the scientific community.
+            </p>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-lg-12 ml-auto">
+          <h3><u>Summary 3:</u> CFD Score, Optimized sgRNA design to maximize activity and minimize off-target effects
+            of CRISPR-Cas9
+            </h4>
+            <br />
+            <p>
+              CRISPR Cas9 is an adaptive autoimmune system present in bacterias to fight against phage attacks. This
+              self-defense mechanism within the bacterial cell uses a Singular Guided RNA (sgRna) along with the Cas9
+              endonuclease enzyme to eliminate bacteriophage/virus DNA within the cell. The Cas9 nuclease cleaves DNA
+              that is complementary to the sgRNA. The concept of using an sgRNA with the Cas9 protein to remove DNA
+              gave rise to the CRISPR Cas9 human-controlled gene-editing technique.
+            </p>
+            <p>
+              Compared to other gene-editing techniques like Zinc finger nuclease and Transcription activator-like
+              effector nucleases, CRISPR Cas9 is a more modern and simpler technique providing more versatility in
+              genome engineering.
+              However, given the age of the technique, CRISPR Cas9 has not been studied as extensively as older
+              techniques. <br />
+              Scientists found that CRISPR can cleave unwanted DNA sequences that are not an exact match to the input
+              sgRNA. These mismatches known as off-targets can cause serious genetic damage.
+            </p>
+            <p>
+              <u>Experiment Purpose & Design</u><br />
+              <span>
+                This paper investigates a number of techniques to design an optimal sgRNA to minimize off-targets and
+                maximize activity. In this summary, we will discuss the sequence-related and point-wise mutation
+                analysis the authors made while examining CRISPR Cas9 activity.<br />
+                They conducted the CRISPR Cas9 experiment on mammalian cells using a library targeting the coding
+                sequence of human CD33 with all possible sgRNAs, regardless of PAM.
+              </span>
+            </p>
+            <p>
+              <u>Results</u><br />
+              They categorized sgRNA mutations in 3 ways.
+              <ol>
+                <li><b>Nucleotide Deletion: </b>This seldom led to activity. Out of 76 nucleotide and position
+                  combinations, 14 retained high levels of cleavage activity from which 13 occured at positions 2, 3,
+                  19 and 20. At positions 19 and 20, the deletion of cytosine in the RNA was seldom tolerated. </li>
+                <li><b>Nucleotide Insertion: </b>Similar to deletion, mutation by nucleotide insertion rarely led to
+                  activity. Most of the activity happened when nucleotides were inserted at position 2 and 3.</li>
+                <li><b>Nucleotide Mismatch: </b>
+                  <ul>
+                    <li>89% of Guanine in RNA and Thymine in DNA mismatches were active across all positions.</li>
+                    <li>37% of Cytosine in RNA and Cytosine in DNA mismatches were active across all positions.</li>
+                  </ul>
+                  Some single-base mismatches were position dependant.
+                  <ul>
+                    <li>At position 16, no Purine - Purine mismatches were tolerated but Purine - Thymine mismatches
+                      were highly active.
+                    </li>
+                    <li>At position 19, 41% of Purine - Purine and 48% of Purine - Thymine mismatches were active.</li>
+                  </ul>
+                </li>
+              </ol>
+              They also found that sgRNAs with an NGG PAM were the most active.
+            </p>
+            <p>
+              <u>Cutting Frequency Determination Scoring (CFD)</u><br/>
+              <p>
+                  The authors created a 2-dimensional matrix in which each cell represents the percent activity of a nucleotide base pair and mutation position. 
+                  <br/><br/>The paper’s definition:<br/>
+                  <blockquote>Cutting Frequency Determination (CFD) score is calculated by using the percent activity values from the matrix.  For example, if the interaction between the sgRNA and DNA has a single rG:dA mismatch in position 6, then that interaction receives a score of 0.67. If there are two or more mismatches, then individual mismatch values are multiplied together. For example, an rG:dA mismatch at position 7 coupled with an rC:dT mismatch at position 10 receives a CFD score of 0.57 × 0.87 = 0.50.</blockquote>
+              </p>
+            </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-primary text-white mb-0"id="glossary">
+  <section class="bg-primary text-white mb-0" id="glossary">
     <div class="container">
       <h2 class="text-center text-uppercase text-white">Glossary</h2>
       <hr class="star-light mb-5">
       <div class="row">
         <div class="col-lg-12 ml-auto">
           <p class="text-justify lead">
-            Mutagenesis: Process in which genetic information of an organism is changed, leading to mutation
+            <u>Mutagenesis:</u> Process in which genetic information of an organism is changed, leading to mutation
             <br>
-            Nuclease: An enzyme that cleaves the chains of nucleotides in nucleic acids into smaller units.
+            <u>Nuclease:</u> An enzyme that cleaves the chains of nucleotides in nucleic acids into smaller units.
             <br>
-            Transcription: A process in which DNA is read by an RNA polymerase and produces a complementary, antiparallel RNA strand called primary transcript.
+            <u>Transcription: </u>A process in which DNA is read by an RNA polymerase and produces a complementary,
+            antiparallel RNA strand called primary transcript.
             <br>
-            Cleave: A chemical reaction that breaks the DNA sequence into two at a specific point.
+            <u>Cleave: </u>A chemical reaction that breaks the DNA sequence into two at a specific point.
             <br>
-            Phage: A virus that parasitizes a bacterium by infecting it and reproducing inside it.
+            <u>Phage: </u>A virus that parasitizes a bacterium by infecting it and reproducing inside it.
             <br>
-            Homologous: DNA that is identical or compatible.
+            <u>Homologous: </u>DNA that is identical or compatible.
             <br>
-            Recombination: An exchange between homologous region of DNA.
+            <u>Recombination: </u>An exchange between homologous region of DNA.
             <br>
-            Oligonucleotide: Polynucleotide whose molecules contain a relatively small number of nucleotides.
+            <u>Oligonucleotide: </u>Polynucleotide whose molecules contain a relatively small number of nucleotides.
             <br>
-            Point Mutation: Mutation of a single nucleotide in the sequence.
+            <u>Point Mutation: </u>Mutation of a single nucleotide in the sequence.
             <br>
-            Locus: A portion of the genome in bacteria.
+            <u>Locus: </u>A portion of the genome in bacteria.
             <br>
-            Protospacer: Target sequence in the foreign genetic material.
+            <u>Protospacer: </u>Target sequence in the foreign genetic material.
             <br>
-            Motif: a sequence motif is a nucleotide or amino-acid sequence pattern that is widespread and has, or is thought to have, a biological significance.
+            <u>Motif: </u>a sequence motif is a nucleotide or amino-acid sequence pattern that is widespread and has,
+            or is
+            thought to have, a biological significance.
             <br>
-            PAM: Precursor adjacent motif, part of CRISPR target sequence.
+            <u>PAM: </u>Precursor adjacent motif, part of CRISPR target sequence.
             <br>
-            Endonuclease: A nuclease that is present in the nucleus.
-			<br>
-			Non-homologous end joining :  after a dna strand is sliced, if there is no donor dna (donor dna: specific desired target dna) to insert in the space, the genes will repair by themselves which might cause a gene mutation due to a missing or additional base addition in the sequence. This type of repair is called non-homologous end joining. 
-			<br>
-			Homology directed repair: after a dna strand is sliced, if there is a homologous donor DNA present which is used to rejoin the sliced dna, it is called a homology directed repair.
+            <u>Endonuclease: </u>A nuclease that is present in the nucleus.
             <br>
-			Off-target: refers to nonspecific and unintended genetic modifications 
-		    <br>
-			SgRNA : Single guide RNA, it contains of two parts, a variable crRNA sequence which is usually 20 base pairs long (read from 3&#8217; to 5&#8217; end and a constant tracrRNA that is used to bind to the Cas9 enzyme which act as molecular scissors used to slice up double stranded DNA.
-			<br>
-			Heteroduplex: heteroduplex is the more stable alignments with low percentage of mismatched base pairs.
-		  </p>
+            <u>Non-homologous end joining:</u> after a dna strand is sliced, if there is no donor dna (donor dna:
+            specific
+            desired target dna) to insert in the space, the genes will repair by themselves which might cause a gene
+            mutation due to a missing or additional base addition in the sequence. This type of repair is called
+            non-homologous end joining.
+            <br>
+            <u>Homology directed repair: </u>after a dna strand is sliced, if there is a homologous donor DNA present
+            which is
+            used to rejoin the sliced dna, it is called a homology directed repair.
+            <br>
+            <u>Off-target: </u>refers to nonspecific and unintended genetic modifications
+            <br>
+            <u>SgRNA: </u>Single guide RNA, it contains of two parts, a variable crRNA sequence which is usually 20
+            base
+            pairs long (read from 3&#8217; to 5&#8217; end and a constant tracrRNA that is used to bind to the Cas9
+            enzyme which act as molecular scissors used to slice up double stranded DNA.
+            <br>
+            <u>Heteroduplex: </u> heteroduplex is the more stable alignments with low percentage of mismatched base
+            pairs.
+          </p>
         </div>
       </div>
     </div>
