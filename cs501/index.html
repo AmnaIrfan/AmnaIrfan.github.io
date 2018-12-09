@@ -1203,11 +1203,50 @@ table tr:hover td {
             <p>
               <u>Cutting Frequency Determination Scoring (CFD)</u><br/>
               <p>
-                  The authors created a 2-dimensional matrix in which each cell represents the percent activity of a nucleotide base pair and mutation position. 
+                  The authors created a 2-dimensional matrix in which each cell represents the percent activity of a nucleotide base pair and mutation position.
                   <br/><br/>The paper’s definition:<br/>
                   <blockquote>Cutting Frequency Determination (CFD) score is calculated by using the percent activity values from the matrix.  For example, if the interaction between the sgRNA and DNA has a single rG:dA mismatch in position 6, then that interaction receives a score of 0.67. If there are two or more mismatches, then individual mismatch values are multiplied together. For example, an rG:dA mismatch at position 7 coupled with an rC:dT mismatch at position 10 receives a CFD score of 0.57 × 0.87 = 0.50.</blockquote>
               </p>
             </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-primary text-white mb-0" id="report">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-white">Report</h2>
+      <hr class="star-light mb-5">
+      <div class="row">
+        <div class="col-lg-12 ml-auto">
+          <h3 class="text-center">A Machine Learning Algorithm For Predicting Cleavage Propensity</h3>
+          <p class="text-justify lead">
+            CRISPR Target Assessment (CRISTA) is a tool for predicting cleavage propensity of potential genomic targets given a specified  sgRNA. It is based on a linear regression model using Random Forest Algorithm and in doing so, allows us to examine the important features that determine the variation of cleavage efficiency. The machine learning algorithm relies on assembly of a training dataset that encompasses a range of data inputs as well as incorporating a set of features that can be used to predict cleavage efficiencies. The algorithm can also be used to distinguish cleaved and uncleaved sites using a classification learning scheme.
+          </p>
+          <h4 class="text-center">Training Dataset Assembly</h4>
+          <p class="text-justify lead">
+            The training dataset initially comprised of a set of uncleaved sites, representing sites that were not cleaved by each sgRNA. Theoretically, one could just exclude the set of cleaved sites of each sgRNA and take the entire genome to represent the uncleaved set, but we include only uncleaved genomic sites with sufficient sequence complementarity to each sgRNA, for meaningful analysis. Each sgRNA from dataset was aligned to sites that follow NGG or NAG motifs in the genome, as per the modified Needleman Wunsch algorithm described above. Then, only the sites with alignment score > 14.75 (95% of cleaved instances have on average 16.7 matched bases) were  retained for further analysis. The number of sites in the uncleaved set varies from 3000 to 70000 per sgRNA, and it is noted that this procedure could introduce some noise for targets in which the reference genome is not identical to the genome used in the experiments.
+          </p>
+          <p class="text-justify lead">
+            The combined training dataset was assembled from experimentally validated cleavage sites together with uncleaved sites. The dependent variable was the cleavage efficiency for each cleaved sample and zero for each uncleaved sample. To keep the data as unbiased as possible, undersampling was performed on the majority class (uncleaved sites) and oversampling was done on the minority class (cleaved sites). Each set of cleaved samples (targets that correspond to a single sgRNA) was oversampled using bootstrapping that resulted in a subset twice the original size and an equal sized of uncleaved set was chosen randomly, as the combined training set. This process was repeated and the results were averaged over executing the algorithm on 100 sampled datasets.
+          </p>
+          <h4 class="text-center">Predictive Features</h3>
+          <p class="text-justify lead">
+            A wide range of possible explanatory attributes were computed. These include features that are specific to target site eg., type of PAM sequence, nucleotide composition and GC content, chromatin structure, CpG islands, gene expression levels of coding regions, those specific to the sgRNA eg., secondary structure and those concerning similarity between the sgRNA and the target eg., number and spatial distribution of mismatches and bulges.
+          </p>
+          <h4 class="text-center"> Implementation and Availability</h3>
+          <p class="text-justify lead">
+            Given the training dataset and set of features, CRISTA is implemented using the RandomForestRegressor in Python’s Scikit Learn library. The score provided by CRISTA represents the log number of sequencing reads identified, which in turn represents a proxy for cleavage frequency, referred to as inferred cleavage propensity. This score is a continuous value but can be used for binary classification, viz., for potentially cleaved and uncleaved sites for a given sgRNA. We can use a fixed threshold for categorization based on observed cleaved sites predicted by CRISTA. For example, 95% of cleaved sites in cleaved dataset used by CRISTA obtained a score higher than 0.12 while 50% surpassed the score of 0.4. In validation set, the thresholds were 0.39 and 0.54 for 95% and 50% respectively. This score can be used to set a lenient or strict threshold.
+          </p>
+          <h4 class="text-center">Assessing Algorithm Performance</h3>
+          <p class="text-justify lead">
+            The prediction performance of CRISTA can be evaluated using cross-validation procedures. A leave-one sgRNA-out cross validation procedure was devised such that in each iteration the samples of a single sgRNA were excluded and used as test set. The algorithm, trained on rest of the data, is then used to predict cleavage probabilities for the test set. In each iteration of the cross-validation, there is a preliminary step: pairwise alignment parameters were first optimized as previously described using only the training set and then were used to recompute the pairwise alignment features for training and test sets. Several metrics were used to evaluate, viz., AUC-ROC curves and Pearson’s correlation coefficient (r2 ) score. Please see below for detailed results. The evaluation is computed over original set of cleaved sites for each sgRNA (without bootstrapping) and an equally-sized sample of uncleaved sites.
+          </p>
+          <h4 class="text-center">Identifying a succinct set of influential features</h3>
+          <p class="text-justify lead">
+            To learn on independent importance of various features, one can reduce the number of features by applying a forward selection procedure. Features are added iteratively by examining performance of leave-one-out cross validation for incremental sets of features. Start with the feature that gives the highest r2 score independently and this is repeated in every iteration, adding that feature to the set. This procedure is repeated for 15 iterations and Random Forest Regression is applied to resulting set of features and relative importance of each feature is extracted.
+          </p>
+          <img class="img-fluid mb-5 d-block mx-auto" src="img/tileshop.jpeg" alt="flowchart">
         </div>
       </div>
     </div>
