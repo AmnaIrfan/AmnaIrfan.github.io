@@ -1248,7 +1248,75 @@ table tr:hover td {
           </p>
           <img class="img-fluid mb-5 d-block mx-auto" src="img/tileshop.jpeg" alt="flowchart">
         </div>
-      </div>
+		<div class="col-lg-12 ml-auto">
+		 <h3 class="text-center">Results</h3>
+          <h4 class="text-center"> What did accounting for bulges result in? </h4>
+          <p class="text-justify lead">
+		  The introduction of gaps affected 18% of the target in the training dataset. It statistically meant 87 of 491 sites contain 1.1 bulges on average, or if we consider the entire data set 175 out of 872 contain 1.23 bulges on average.</p>
+          <p class="text-justify lead">
+		  The r<sup>2</sup> = of 0.34 versus the r<sup>2</sup> = 0.27 (between pairwise alignment score and observed cleavage frequencies) when no gaps were allowed. The parameters for the sequence alignment which gave the best results was when the value for match =1, mismatch = 0 and gap = -1.25. The mismatch was chosen to not be penalized but matches are rewarded highly so a longer complementary strand is preferred.
+          </p>
+		  <p class="text-justify lead">
+		  Inclusion of bulges also meant reconsidering the PAM sites before finalizing, this led to 33,17 and 22 shifts in Tsai, Kleinsteiver and Frock data respectively. 
+          </p>
+		  <p class="text-justify lead">
+		  Also, pairwise similarity score is just accountable for 34% of the variation in cleaved sites so the decision to include more features for the prediction process was done.
+          </p>
+          <h4 class="text-center">The machine learning algorithm to predict cleavage propensity:</h4>
+          <p class="text-justify lead">
+		  Crista uses Random forest regression model. They evaluated the prediction performance of CRISTA in Leave-one sgRNA- out cross validation procedure.
+          </p>
+		  <ol>
+                <li>Pearson correlation coefficient = r<sup>2</sup> ( the two variables were observed cleavage frequencies and the predicted frequencies ) . for Crista it was 0.65, Opt cd = 0.13, cctop = 0.23 and CFD = 0.52. </li>
+                <li>The spearman rank correlation for CRISTA was 0.81, OptCD = 0.66 , CCTop = 0.64 and CFD was 0.74.</li>
+                <li>ROC curve to compare AUC for if they could distinguish between cleaved (+ve sets) and uncleaved (-ve sets) sites was measured. Crista = 0.96, OptCD = 0.85 CFD = 0.91 and CCTop =0.85.</li>				
+                <li>AUC of precision-recall curve which is ability to detect and to rank among the positive samples. The scores of CRISTA= 0.96, CFD =0.93 , OptCD= 0.88 and CCTop = 0.8.</li>
+              </ol>
+		  <p class="text-justify lead">
+		  Consistency was tested by calculating accuracy of all the tools in prediction against all sgRNAs. CRISTA r<sup>2</sup>= 0.8 , sd=0.13. CFD r<sup>2</sup>=0.65, sd = 0.2, OptCD r<sup>2</sup> = 0.32 , sd=0.28 , CCTop r<sup>2</sup>= 0.46 , sd= 0.25. The averaged spearman correlation coefficients were CRISTA = 0.88, CFD = 0.77, OptCD = 0.76 and CCTop = 0.72. 
+          </p>
+          <h4 class="text-center">How accurate was CRISTA in different detection technique? </h4>
+          <p class="text-justify lead">
+          First, the study was unbiased towards any of the data source. They conducted a leave-one-study-out cross validation technique to check for accuracy of CRISTA . This also allowed for checking the compatibility between the different methods. 
+		  </p>
+		  <p class="text justify lead"> 
+		  The performance of the model was evaluated against data that was like training set as well as new data. 
+		  </p>
+		  <p class="text justify lead">
+		  From the results, it was decided to eliminate Frock et al Data set as it was not compatible with the other datasets. All the other datasets, when used as test data, CRISTA gave results where r<sup>2</sup>  was always greater than 0.8 and the AUC for ROC and PRC curves were close to 1. 
+          </p>
+		  <p class="text justify lead">
+		  The prediction accuracy of known data and new data were not too varied implicating that the algorithm did well with both known as well as brand new data. 
+		  </p>
+		  <h4 class="text-center">How did inclusion of uncleaved sites contribute to learning procedure?</h4>
+          <p class="text-justify lead">
+            The inclusion of uncleaved sites had an impact in the prediction performance of the model. This was tested by leave-one-sgRNA-out procedure retaining only cleaved sites in training set. The accuracy was lower than that of original CRISTA.  </p>
+          <h4 class="text-center">Features Selection</h4>
+          <p class="text-justify lead">
+		    Forward selection process was used to select the group of important features
+          </p>
+		  <p class="text-justify lead"> 
+		  Three major clusters were noticed. The three were related to i) features concerning pairwise similarity . ii) features relating to nucleotide content and iii) features related to PAM sites and the dna geometry associated with it. 
+          </p>
+		  <p class="text-justify lead">
+		  Pairwise alignment score was the first feature to be selected.</p>
+		  <p class="text-justify lead">
+		  Among pairwise similarity features, the number of mismatches (with many attributes describing the type of mismatch) , their positions and the number of DNA RNA bulges seem important. 
+          </p>
+		  <p class="text-justify lead">
+		  Among Nucleotide content, position of some nucleotides was recognized to be important which affect the sensitivity of CRISPR-Cas9. Nucleotides in the second position upstream of PAM, couple of nucleotides in position 4-5 nucleotides (where cleavage occurs) and nucleotide in first five positions upstream of PAM are all said to have contributions in the prediction accuracy.
+          </p>		  
+		  <p class="text-justify lead">
+		  Among dna geometry and Pam related features, targets that were present within DNaseI hypersensitive sites and wintin an exon were selected. The measure describing width of minor grove around Pam site was selected and also DNA enthalpy was selected. DNA enthalpy is said to be of great importance in Cas9 efficacy prediction. 
+		 </p>
+		 <h4 class="text-center">Validation of CRISTA&#8217;s Performance:</h4>
+		 <p class="text-justify lead">
+		 To validate the performance of CRISTA, a unbiased learning dataset is needed. Dataset of targeted sequencing from Cho et al and Wang et all studies were chosen. They consist of 170 samples of on-target , off-target and uncleaved sites, 12 sgRNAs. 
+		 </p>
+		 <p class="text-justify lead">
+		 CRISTA achieved average of pearson r<sup>2</sup> = 0.68, AUC for ROC = 0.7 and AUC for Prc-Rec = 0.72. CRISTA performed better than CCTop and CFD scores. But OptCD scored more than CRISTA because of its binary nature. It assigns 1 to all on targets and 0 to all other sites. Whereas, CRISTA ,CCTop and CFD produce a continuous scale. 
+		 </p>
+	  </div>
     </div>
   </section>
 
