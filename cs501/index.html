@@ -279,6 +279,9 @@ table tr:hover td {
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#progress">Progress</a>
           </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#survey">Survey</a>
+          </li>
           <!-- <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#glossary">Glossary</a>
           </li> -->
@@ -1214,12 +1217,64 @@ table tr:hover td {
   </section>
 
   <section class="bg-primary text-white mb-0" id="report">
-    <div class="container">
-      <h2 class="text-center text-uppercase text-white">Report</h2>
+    <div class="container" id="survey">
+      <h2 class="text-center text-uppercase text-white">Survey</h2>
       <hr class="star-light mb-5">
       <div class="row">
         <div class="col-lg-12 ml-auto">
-          <h3 class="text-center">A Machine Learning Algorithm For Predicting Cleavage Propensity</h3>
+          <h3 class="text-center">A Machine Learning Algorithm For Predicting CRISPR CAS9 Genomic Cleavage Propensity</h3>
+          <br/>
+          <h3 class="text-center">Background</h3>
+          <p class="text-justify lead">
+            In the 1980s, scientists noticed short palindromic repeats in the bacterial/prokaryotic genome. These palindromic sequences were separated by short sequences(32-38 nucleotide base pairs) later known as “protospacers”. In 1993, Francisco Mojica discovered that the protospacers sequences separating palindromes in the bacterial genome were identical to DNA snippets from the genome of bacteriophage and virus. He coined the term “CRISPR” (Clustered, Regularly InterSpaced Palindromic Repeats) and named the bacterial genomic region containing these palindromes and protospacers as the “CRISPR Locus” or “CRISPR arrays”. This led to the discovery that bacterias keep the DNA copies of bacteriophage in the CRISPR locus to later use an adaptive immune system to remove those DNA snippets from their own genome. When the virus attacks the bacteria again, they produce complementary RNA segments to the protospacer in CRISPR arrays. These RNA sequences are also known as “Single-guided RNAs” aka sgRNAs. To remove each viral DNA snippet, the bacteria uses a Cas9 complex containing an sgRNA along with the Cas9 endonuclease enzyme. The sgRNA guides the Cas9 to bind to a PAM sequence located on the opposite strand of the target DNA. Once the sgRNA finds the complementary DNA sequence, Cas9 being a nuclease edits the DNA by cutting and removing the double stranded complementary DNA from the bacterial genome. This naturally occurring self-defense mechanism in bacterial cells is known as “CRISPR Cas9”.
+          </p>
+
+          <h3 class="text-center">CRISPR Cas9 - a Gene Editing Technique</h3>
+          <p class="text-justify lead">The CRISPR Cas9 system in bacterias has been adapted by human beings as a gene-editing technique. CRISPR Cas9 works similarly in a research laboratory environment. Scientists start by creating a Single-Guided RNA sequence complementary to their target DNA/gene. They then bind the sgRNA to the Cas9 enzyme to create the Cas9 complex and later inject it into the target cell. There are a number of techniques to inject the CAS9 complex into the cells and body.</p>
+          <ul>
+            <li>Viral injections</li>
+            <li>Zygote injections</li>
+            <li>Gels and creams</li>
+            <li>Drinkable or edible CRISPR</li>
+            <li>Ear injections</li>
+            <li>Skin Grafts</li>
+            <li>Ex-vivo therapy</li>
+          </ul>
+          <p class="text-justify lead">
+            Once the Cas9 complex is injected into the cell, it binds to the target DNA sequence. This can be used to mutate genes or turn them on and knock them off by adding, removing and replacing nucleotide base pairs in the target site. Even though the actual CRISPR Cas9 system in bacterias only removes DNA, scientists have found ways to replace and add DNA sequences by integrating it with other natural mechanisms like a cell’s homology-directed repair.          </p>
+                    
+            <h3 class="text-center">CRISPR Cas9 and off-targets</h3>
+            <p class="text-justify lead">
+              Even though CRISPR Cas9 is simpler and more time-efficient compared to older gene-editing techniques, they are not as thoroughly-studied. CRISPR Cas9 is not perfect and it can cleave unintended DNA sequences that are not complementary to the sgRNA. These sites are known as “off-targets”. Previous studies found that CRISPR Cas9 can tolerate sequence mismatches. <u>This paper introduces a novel machine-learning algorithm called CRISTA that considers a number of features to find the propensity of a DNA being cleaved by a given sgRNA</u>. 
+            </p>  
+            <p class="text-justify lead">Earlier research on this topic experimented and analyzed off-target effects on DNA sequences that were similar to the SgRNA sequence. Since these target sites were pre-selected based on their sequence similarity, the results of these papers were biased and limited to only pairwise sequence similarity. </p>
+            <p class="text-justify lead">As a results, unbiased research was conducted on genome-wide data. The target sites were included whether or not they were similar to the sgRNA. This led to the discovery of other features (not limited to sequence similarity) that impacted the cleavage propensity of genomic sites. Scientists found that off-targets can be located at unexpected sites.
+            </p>
+            <ol>
+              <li>Targets with an alternative PAM sequence (besides the canonical NGG PAM) were surprisingly cleaved.
+              </li>
+              <li>A large number of mismatches between the cleaved site and sgRNA were tollerated.
+              </li>
+              <li>Sites that had a high cleavage frequency compared to the actual correct target site.
+              </li>
+            </ol>
+            <p class="text-justify lead">Previous computational work has also been conducted on designing sgRNAs to minimize off targets through calculating scores like CCTOP and CFD (details are in the progress tab). These algorithms, however do not go beyond pairwise sequence similarity and neglect features concerning the genomic context surrounding the target site and thermodynamics of the sgRNA.</p>
+            <p class="text-justify lead"><u>Discoveries made by the unbiased research projects make it obvious that in order to predict the cleavage frequency of a target genomic site given an sgRNA, a number of features need to be considered. These features can not only be limited to basic sequence features and so CRISTR, the proposed machine learning solution does the job of incorporating a number of features in its predictive model to calculate the cleavage propensity of a genomic site given an sgRNA.
+            </u></p>
+            <h3 class="text-center">Data Assembly
+            </h3>
+            <p class="text-justify lead">Since this paper did not want to make the mistake of pre-selecting genomic sites based on their similarity to the sgRNA, they chose to use datasets from research experiments that focused on genome-wide data. This not only ensured that their research was free of the pairwise sequencing bias, it also introduced the concept of accounting for important features that affect cleavage frequency; These features were neglected by previous computational methods.
+              They used five different datasets; each dataset had a list of SgRNAs and the cleaved genomic/DNA sequence along with the number of times it was cleaved. All datasets combined had 25 unique sgRNAs and 872 genomic sites cleaved by those sgRNAs.
+              </p>
+              <p class="text-justify lead">Since all the datasets were obtained from different experimental conditions the cleavage frequencies were not comparable. The authors used linear regression to transform the cleavage frequencies to a common scale.</p>
+
+              <h3 class="text-center">Bulges in Sequence Alignment
+              </h3>
+              <p class="text-justify lead">Previous research found that counting mismatches between the sgRNA and target DNA wasn’t enough in calculating sequence similarity as DNA and RNA could also have bulges/gaps. This meant that the cleaved DNA could be 3 nucleotide base pair longer or shorter than the complementary sgRNA. If the sgRNA was 20bp the cleaved DNA could be between 17-23bp long. To account for these bulges, the authors modified the Needleman-Wunch pairwise alignment problem. Since the sequence similarity was not just mismatches, rules had to be created to decide the penalty and whether a mismatch takes precedence over a gap. To learn the best parameters, different combination of parameter values were plotted against the cleavage frequencies.
+                The parameter values resulting in the highest averaged square Pearson correlation (r^2) was chosen.
+                </p>
+              <h3 class="text-center">Methods
+              </h3>
           <p class="text-justify lead">
             CRISPR Target Assessment (CRISTA) is a tool for predicting cleavage propensity of potential genomic targets given a specified  sgRNA. It is based on a linear regression model using Random Forest Algorithm and in doing so, allows us to examine the important features that determine the variation of cleavage efficiency. The machine learning algorithm relies on assembly of a training dataset that encompasses a range of data inputs as well as incorporating a set of features that can be used to predict cleavage efficiencies. The algorithm can also be used to distinguish cleaved and uncleaved sites using a classification learning scheme.
           </p>
